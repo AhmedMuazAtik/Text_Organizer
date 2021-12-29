@@ -14,18 +14,21 @@ public class Project {
 
     public static String subString(String text, int firstLetter, int lastLetter) {       //bir stringin belirli bir araligini kesip bos bir stringe atiyor.
         String splittedString = "";
+        char lettersOfTheString;
+        
         for (int i = firstLetter; i <= lastLetter; i++) {                                //hangi araligi alacagi for dongusuyle belirleniyor.
-            char lettersOfTheString = text.charAt(i);
+            lettersOfTheString = text.charAt(i);
             splittedString += lettersOfTheString;
         }
         return splittedString;                                                           
     }
 
     public static int numOfBlanks(String text) {                                         //stringde kac kelime oldugunu hesapliyor.
-        int numberOfBlanks = 1;                                                          
+        int numberOfBlanks = 1;   
+        char blanksOfTheString;
 
         for (int i = 0; i < text.length(); i++) {                                        //for dongusuyle bosluk sayisini hesapliyor, 1 ekleyip kelime sayisini buluyor.
-            char blanksOfTheString = text.charAt(i);
+            blanksOfTheString = text.charAt(i);
 
             if (blanksOfTheString == ' ') {
                 numberOfBlanks++;
@@ -40,8 +43,10 @@ public class Project {
 
         String doubleString = text + text;                                               //yanyana iki string yazilinca tum varyasyonlar ortaya cikiyor.
 
+        String newSplittedString;
+                
         for (int i = 0; i <= n; i++) {                                                   
-            String newSplittedString = subString(doubleString, i, text.length() + i - 1);
+            newSplittedString = subString(doubleString, i, text.length() + i - 1);
 
             rotatedString = newSplittedString;
         }
@@ -51,9 +56,10 @@ public class Project {
 
     public static String lowerCase(String text) {                                        //strindeki tum kelimelerde bulunan buyuk harfleri kucuk harfe donusturuyor.
         String lowerCasedString = "";
+        char lettersOfTheString;
 
         for (int i = 0; i < text.length(); i++) {                                        //ASCII Table'ye gore buyuk harfe 32 eklenip kucuk harfe donusturuluyor.
-            char lettersOfTheString = text.charAt(i);
+            lettersOfTheString = text.charAt(i);
 
             if (lettersOfTheString >= 65 && lettersOfTheString <= 90) {
                 lowerCasedString += (char) (lettersOfTheString + 32);
@@ -70,11 +76,12 @@ public class Project {
 
         String[] stringIntoArray = new String[numOfBlanks(text)];
         String newString = "";
+        char lettersOfTheString;
 
         int queue = 0;
 
         for (int i = 0; i < text.length(); i++) {                                        //eger harf bosluga esitse bosluga kadar olan kisim arraye ataniyor.
-            char lettersOfTheString = text.charAt(i);
+            lettersOfTheString = text.charAt(i);
 
             if (lettersOfTheString != ' ') {
                 newString += lettersOfTheString;
